@@ -41,7 +41,7 @@ node('docker-cloud') {
       throw x
     }
   }
-}
+//}
 
 if(env.BRANCH_NAME=="master"){
   checkpoint 'Quality Analysis Complete'
