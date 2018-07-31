@@ -1,9 +1,9 @@
 def buildVersion = null
 properties([[$class: 'BuildDiscarderProperty', strategy: [$class: 'LogRotator', artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '5']]])
-stage 'Build'
-if(!env.JOB_NAME.startsWith("team-productivity/beedemo-sa/mobile-deposit-api/")) {
-  echo 'only build for beedemo-sa org folder'
-  error 'invalid project path'
+//stage 'Build'
+//if(!env.JOB_NAME.startsWith("team-productivity/beedemo-sa/mobile-deposit-api/")) {
+  //echo 'only build for beedemo-sa org folder'
+  //error 'invalid project path'
 }
 node('docker-cloud') {
     checkout scm
@@ -13,7 +13,7 @@ node('docker-cloud') {
     stash name: 'pom', includes: 'pom.xml, src, target'
 }
 
-if(!env.BRANCH_NAME.startsWith("PR")){
+//if(!env.BRANCH_NAME.startsWith("PR")){
   checkpoint 'Build Complete'
   stage 'Quality Analysis'
   node('docker-cloud') {
