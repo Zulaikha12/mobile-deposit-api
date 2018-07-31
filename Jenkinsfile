@@ -4,7 +4,7 @@ properties([[$class: 'BuildDiscarderProperty', strategy: [$class: 'LogRotator', 
 //if(!env.JOB_NAME.startsWith("team-productivity/beedemo-sa/mobile-deposit-api/")) {
   //echo 'only build for beedemo-sa org folder'
   //error 'invalid project path'
-}
+//}
 node('docker-cloud') {
     checkout scm
     docker.image('kmadel/maven:3.3.3-jdk-8').inside('-v /data:/data') {
